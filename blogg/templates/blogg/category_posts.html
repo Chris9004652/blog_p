@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% include "component/nav.html" %} 
+{% endblock %}
+
+{% block title %}{{ category_name | title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ category_name | title }}</h1>
+    
+    {% if posts %}
+        {% for post in posts %}
+            {% include "component/cards.html" with title=post.title description=post.content|truncatewords:30 url_name='blogg:article_detail' url_params=post.pk link_text='Read More' image_url=post.image.url %}
+            <p>Published on: {{ post.published_date }}</p>
+            <p>Author: {{ post.author }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No posts found in the "{{ category_name }}" category.</p>
+    {% endif %}
+{% endblock %}
+
+    
+
+{% block footer %}
+{% include "component/footer.html" %}{% endblock %}

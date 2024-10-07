@@ -1,0 +1,17 @@
+<nav>
+    <div class="nav-container">
+        <h2 class="blog-title">West Side Blog</h2>
+        <ul class="nav-list">
+            <li><a href="{% url 'blogg:home' %}">Trending</a></li>
+            <li><a href="{% url 'blogg:category_posts' 'politics' %}">Politics</a></li>
+            <li><a href="{% url 'blogg:category_posts' 'Entertainment' %}">Entertainment</a></li>
+            <li><a href="{% url 'blogg:category_posts' 'Health' %}">Health</a></li>
+            <li><a href="{% url 'blogg:category_posts' 'Food' %}">Food</a></li>
+            
+        </ul>
+        <form class="search-form" action="{% url 'blogg:search_posts' %}" method="GET">
+            <input type="text" name="q" class="search-input" placeholder="Search posts...">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+</nav>

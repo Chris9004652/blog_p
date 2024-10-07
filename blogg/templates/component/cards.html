@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-content">
+        {% if image_url %}
+            <img src="{{ image_url }}" alt="{{ title }}" class="card-image">
+        {% endif %}
+        <div class="card-text">
+            <h2>{{ title }}</h2>
+            {% if description %}
+                <p>{{ description }}</p>
+            {% endif %}
+            <a href="{% url url_name url_params %}" class="card-link">{{ link_text }}</a>
+        </div>
+    </div>
+</div>

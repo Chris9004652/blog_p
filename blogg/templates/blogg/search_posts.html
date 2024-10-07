@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block header %}
+{% include "component/nav.html" %} 
+{% endblock %}
+
+{% block title %}Search Results - West Side Blog{% endblock %}
+
+{% block header %}
+  <h1>Search Results</h1>
+
+  <!-- Search Form (again in case user wants to search something else) -->
+  <form action="{% url 'blogg:search_posts' %}" method="GET">
+      <input type="text" name="q" placeholder="Search posts..." value="{{ query|default_if_none:'' }}">
+      <button type="submit">Search</button>
+  </form>
+{% endblock %}
+
+{% block content %}
+    {% if posts %}
+        <h2>Showing results for "{{ query }}":</h2>
+        {% for post in posts %}
+            <!-- Reuse your card component -->
+            {% include "component/cards.html" with title=post.title description=post.content|truncatewords:30 url_name='blogg:article_detail' url_params=post.pk link_text='Read More' image_url=post.image.url %}
+            <p>Author: {{ post.author }}</p>
+        {% endfor %}
+    {% else %}
+        <h2>No posts found for "{{ query }}"</h2>
+        <p>Try searching with different keywords.</p>
+    {% endif %}
+{% endblock %}
+
+    
+{% endblock %}
+{% block footer %}
+{% include "component/footer.html" %}{% endblock %}
