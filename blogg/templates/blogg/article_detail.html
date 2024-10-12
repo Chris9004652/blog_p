@@ -153,6 +153,10 @@
             <p><strong>Author:</strong> {{ current_article.author }}</p>
             <p>{{ current_article.content }}</p>
             <p><small>{{ current_article.description }}</small></p>
+            
+            {% if current_article.author == request.user %}
+            <a href="{% url 'blogg:delete_post' current_article.pk %}" class="btn btn-danger">Delete Post</a>
+          {% endif %}
         </div>
     </div>
 

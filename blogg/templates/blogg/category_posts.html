@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 
-{% block header %}
-{% include "component/nav.html" %} 
-{% endblock %}
 
 {% block title %}{{ category_name | title }}{% endblock %}
 
 {% block content %}
+{% include "component/nav.html" %} 
     <h1>{{ category_name | title }}</h1>
     
     {% if posts %}

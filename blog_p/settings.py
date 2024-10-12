@@ -11,6 +11,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+# settings.py
+
+import os
+
+# Add your NYT API key
+NYT_API_KEY = os.getenv('jsufIIHfnWlwKTo0VGURAGUDmCYdu6kE')  # Or set it directly like 'YOUR_API_KEY'
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogg',
+    'authentication',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +130,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL= 'authentication.CustomUser'
+LOGIN_REDIRECT_URL = "blogg:home"
+LOGOUT_REDIRECT_URL = "blogg:home"

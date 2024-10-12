@@ -19,77 +19,7 @@
             padding: 0;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
 
-        /* Navigation Styles */
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 0.5rem 0;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .blog-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-
-        .nav-list {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-list li {
-            margin-left: 1.2rem;
-        }
-
-        .nav-list a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-list a:hover {
-            color: #f4a460;
-        }
-
-        .search-form {
-            display: flex;
-        }
-
-        .search-input {
-            padding: 0.3rem;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            font-size: 0.8rem;
-        }
-
-        .search-button {
-            background-color: #f4a460;
-            color: #fff;
-            border: none;
-            padding: 0.3rem 0.8rem;
-            cursor: pointer;
-            border-radius: 0 4px 4px 0;
-            font-size: 0.8rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .search-button:hover {
-            background-color: #e08c45;
-        }
 
         /* Content Styles */
         .content {
@@ -180,29 +110,8 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-list {
-                flex-direction: column;
-                margin-top: 0.5rem;
-            }
-
-            .nav-list li {
-                margin-left: 0;
-                margin-bottom: 0.3rem;
-            }
-
-            .search-form {
-                margin-top: 0.5rem;
-                width: 100%;
-            }
-
-            .search-input {
-                flex-grow: 1;
-            }
+            
+            
 
             .card-content {
                 flex-direction: column;
@@ -213,6 +122,36 @@
                 height: 200px;
             }
         }
+/* Ensure the navbar takes full width */
+.navbar {
+    width: 100%; /* Full width */
+}
+
+/* Remove any default margin and padding for the body */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Customize the search input */
+.form-control {
+    width: 300px; /* Adjust as needed */
+}
+
+/* Style the navbar items */
+.navbar-nav .nav-link {
+    color: #ffffff; /* White text color */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ccc; /* Light color on hover */
+}
+
+.auth-links .btn {
+    margin-left: 0.5rem; /* Space between buttons */
+}
+
+
     </style>
     {% block extra_css %}{% endblock %}
 </head>
@@ -220,12 +159,14 @@
     
 
     <div class="container">
+       
         <header>
             <h1>{% block header %}West Side Blog{% endblock %}</h1>
+            <h4>Times Topic</h4>
         </header>
 
         <main class="content">
-            <h4>Times Topic</h4>
+           
             {% block content %}
             {% endblock %}
         </main>
